@@ -26,6 +26,15 @@ body {
   scroll-snap-align: start;
 }
 
+.main_title{
+  font-size: 15vh;
+  margin-bottom: 10vh;
+}
+
+.main_text{
+  font-size: 3vh;
+}
+
 .main{
   display: flex;
   justify-content: center;
@@ -33,55 +42,103 @@ body {
   scroll-snap-align: start;
 }
 
-.main_title{
-  font-size: 15vh;
-}
-
-.main_text{
-  font-size: 3vh;
-}
-
-.dreaml > div{
+.dream_container {
   position: relative;
-  width: 30vh;
+  overflow: hidden;
+  height: 100vh;
+  animation: color 4s linear infinite;
+}
+
+@keyframes color {
+  0%{
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
+.row {
+  display: Inline-flex;
+  margin-left: -10vw;
+  margin-top: -10vh;
+  overflow: hidden;
+  
+}
+
+.row:nth-child(odd){
+  margin-left:  1px;
+}
+
+.forme {
+  position: relative;
+  height: 20vh;
+  width: 20vw;
+  background: #111;
+  margin: 1px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  transition: 2s;
+  color: white;
+  font-size: 5vh;
+  line-height: 20vh;
+}
+
+.forme:hover {
+  background: red;
+  transition: 0s;
+}
+
+.carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.carousel_item--hidden, .carousel_descrpt--hidden {
+  display: none;
+}
+
+.carousel_item--visible, .carousel_descrpt--visible {
+  display: block;
+  font-size: 5vmin;
+  animation: fadeVisibility 0.5s;
+}
+
+@keyframes fadeVisibility {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: opacity linear;
+  }
+}
+
+.carousel_item>img {
   height: 30vh;
-  font-size: 6vh;
-  background-color: #7d529993;
 }
 
-.dreaml > div:nth-child(odd){
-  transform: skew(20deg);
-}
-.dreaml > div:nth-child(even){
-  transform: skew(-20deg);
-}
-
-.col1{
-  left: 20vh;
-}
-.col2{
-  left: 60vh;
-  bottom: 60vh;
-}
-.col3{
-  left: 100vh;
-  bottom: 120vh;
-}
-.col4{
-  left: 140vh;
-  bottom: 180vh;
+.carousel__actions {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-1000%);
 }
 
-.dreaml > div:hover{
-  background-color: #7D5299;
+.carousel_actions>button {
+  border-radius: 50px;
+  border: 0;
+  font-weight: bold;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+#carousel_button--prev {
+  margin-left: 20px;
 }
 
-
-input{
-  background-color: #c185e9;
-  padding: 12px 20px;
-}
-textarea{
-  background-color: #c185e9;
-  padding: 12px 20px;
+#carousel_button--next {
+  margin-right: 20px;
 }
